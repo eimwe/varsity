@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Универ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <main class="wrapper">
+      <div class="playground">
+        <img class="playground__map" src="./images/map.png" alt="Игровое поле">
+        <div class="player">
+          <img src="./images/pers.png" alt="Игровой персонаж">
+        </div>
+        <div class="toolbar flex-container">
+          <div class="gallery flex-container">
+            <button class="gallery__control prev visually-hidden">Назад</button>
+            <ul class="gallery__items flex-container">
+              <li class="item item--befriend">
+                <div class="item__image">1</div>
+                <button type="button" class="btn btn--add visually-hidden">Добавить</button>
+              </li>
+              <li class="item">
+                <div class="item__image">2</div>
+              </li>
+              <li class="item">
+                <div class="item__image">3</div>
+              </li>
+              <li class="item">
+                <div class="item__image">4</div>
+              </li>
+              <li class="item">
+                <div class="item__image">5</div>
+              </li>
+              <li class="item">
+                <div class="item__image">6</div>
+              </li>
+              <li class="item">7</li>
+              <li class="item">8</li>
+              <li class="item">9</li>
+            </ul>
+            <button class="gallery__control next visually-hidden">Вперед</button>
+          </div>
+          <nav class="interface__elements flex-container"> 
+            <button type="button" class="element chatroom">Чат</button>
+            <button type="button" class="element gametrigger">В универ</button>
+            <button type="button" class="element mailbox">Личные сообщения</button>
+            <button type="button" class="element scorecard">Рейтинг</button>
+          </nav>
+        </div>
+        <div class="popup scoretable">
+          <header class="flex-container">
+            <h2>Рейтинг игроков</h2>
+            <button type="button" class="btn btn--close visually-hidden">Закрыть</button>
+          </header>
+          <div class="scoretable__container">
+            <table class="scoretable__content">
+              <thead>
+                <tr>
+                  <th>Место</th>
+                  <th>Фото</th>
+                  <th>Имя</th>
+                  <th>Фамилия</th>
+                  <th>Опыт</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

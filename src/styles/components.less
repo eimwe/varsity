@@ -1,0 +1,219 @@
+.gallery {
+  width: 536px;
+  height: 63px;
+  margin-right: 4px;
+  background: url('../images/assets/friendlist.png') no-repeat;
+  &__control {
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-right: 15px solid #fff;
+    border-bottom: 15px solid transparent;
+    transition: all var(--interval);
+    filter: drop-shadow(1px 0 1px #000);
+    &.next {
+      transform: rotate(180deg);
+      &:hover {
+        transform: rotate(180deg) var(--btn-hover);
+      }
+    }
+    &.prev {
+      &:hover {
+        transform: var(--btn-hover);
+      }
+    }
+  }
+  .gallery__items {
+    width: 480px;
+    height: 63px;
+    padding-inline: 5px;
+    overflow: hidden;
+    .item {
+      flex-shrink: 0;
+      width: 50px;
+      height: 51px;
+      background: url('../images/assets/photoframe.png') no-repeat;
+      .visually-hidden();
+      &__image {
+        width: 28px;
+        height: 38px;
+        margin-inline: auto;
+        margin-top: 11px;
+        background: url('../images/assets/friend-icon.png') no-repeat;
+      }
+      .btn {
+        width: 34px;
+        height: 35px;
+        .visually-hidden();
+        transition: all var(--interval);
+        &--add {
+          background: url('../images/assets/add-btn.png') no-repeat;
+          transform: translate(21px, -58px);
+          &:hover {
+            transform: translate(21px, -58px) translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+}
+
+.interface__elements {
+  width: 417px;
+  .element {
+    transition: all var(--interval);
+    &:not(.gametrigger) {
+      .visually-hidden();
+    }
+    &:hover {
+      transform: translateY(-2px);
+    }
+    &.chatroom {
+      width: 67px;
+      height: 62px;
+      background: url('../images/assets/chat-btn.png') no-repeat;
+      &:hover {
+        background: url('../images/assets/chat-btn-hovered.png') no-repeat;
+      }
+    }
+    &.gametrigger {
+      width: 206px;
+      height: 67px;
+      font: inherit;
+      font-size: 2.125rem;
+      font-weight: bold;
+      line-height: 67px;
+      text-transform: uppercase;
+      color: #fff;
+      background: url('../images/assets/gametrigger-btn.png');
+    }
+    &.mailbox {
+      width: 68px;
+      height: 64px;
+      background: url('../images/assets/mail-btn.png') no-repeat;
+    }
+    &.scorecard {
+      width: 66px;
+      height: 61px;
+      background-image: url('../images/assets/rating-icon.png'), url('../images/assets/temp-btn.png');
+      background-repeat: no-repeat, no-repeat;
+      background-position: 3px 0, 0 0;
+    }
+  }
+}
+
+.popup {
+  position: absolute;
+  inset: 0;
+  width: 523px;
+  height: 455px;
+  margin-inline: auto;
+  color: #fff;
+  background: url('../images/assets/popup-body.png') no-repeat;
+  transform-style: preserve-3d;
+  opacity: 0;
+  transition: all var(--interval);
+  &::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    width: 980px;
+    height: 630px;
+    background-color: #000;
+    opacity: .4;
+    transform: translate(-229px, -55px) translateZ(-1px);
+  }
+  &.active {
+    top: calc(50% - 260px);
+    opacity: 1;
+    &::before {
+      inset: 0;
+    }
+  }
+  &.scoretable {
+    header {
+      padding-inline: 17px;
+      padding-block: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      h2 {
+        width: 264px;
+        height: 33px;
+        margin: 0;
+        text-align: center;
+        line-height: 33px;
+        text-shadow: 1px 1px 2px #000;
+        background: url('../images/assets/popup-head.png') no-repeat;
+        transform: translate(110px, -27px);
+      }
+      .btn--close {
+        width: 26px;
+        height: 26px;
+        background: url('../images/assets/close-btn.png') no-repeat;
+        transition: all var(--interval);
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+    .scoretable__container {
+      width: 464px;
+      height: 324px;
+      margin-inline: auto;
+      margin-top: 40px;
+      padding: 25px 28px;
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        width: 5px;
+        &-track {
+          box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+          border-radius: 10px;
+        }
+        &-thumb {
+          background-color: chocolate;
+          border-radius: 10px;
+        }
+      }
+      background: url('../images/assets/popup-tbody.png') no-repeat;
+      .scoretable__content {
+        width: 100%;
+        border-spacing: 0 5px;
+        text-align: left;
+        font: .8rem Arial, Helvetica, sans-serif;
+        thead tr {
+          width: 403px;
+          height: 29px;
+          background: url('../images/assets/popup-thead.png') no-repeat;
+          background-position: center;
+          th {
+            &:first-child {
+              text-align: center;
+            }
+            &:nth-child(2) {
+              width: 30px;
+              .visually-hidden();
+            }
+            &:nth-child(3) {
+              width: 75px;
+            }
+          }
+        }
+        tbody tr {
+          width: 403px;
+          height: 27px;
+          font-weight: bold;
+          background: url('../images/assets/popup-trow.png') no-repeat;
+          background-position: center;
+          td {
+            &:first-child {
+              text-align: center;
+            }
+          }
+        }
+        .friend {
+          text-shadow: 1px 1px 2px #000;
+          color: green;
+        }
+      }
+    }
+  }
+}
